@@ -113,7 +113,7 @@ gt.construct = function(){
             default:
                 this.o_paragraphFirstString = document.getElementById('fstString').value;
         }
-        this.o_fanjianid = document.getElementById('cs2ctSelect').value; 
+        if (!fast) this.o_fanjianid = document.getElementById('cs2ctSelect').value; 
         this.o_fanjian = this.o_fanjianid == '0' ? false : true;
 
         if(document.getElementById('quanjiao_no').checked)
@@ -378,7 +378,7 @@ gt.construct = function(){
         this.minceOption_0('selectall', 'option2', true);
         this.minceOption_1('linespaceSelect', 'option3', '2');
         this.minceOption_1('fstStringSelect', 'option4', '2');
-        this.minceOption_1('cs2ctSelect', 'option5', '0');
+        if (!fast) this.minceOption_1('cs2ctSelect', 'option5', '0');
         this.id('fstString').value = this.getcookie('option6')==null?'　　':this.getcookie('option6');
     }
     this.minceOption_0 = function (id, coname, defaultvalue)
@@ -398,7 +398,7 @@ gt.construct = function(){
         this.setcookie('option2', this.id('selectall').checked, 999999999);
         this.setcookie('option3', this.id('linespaceSelect').value, 999999999);
         this.setcookie('option4', this.id('fstStringSelect').value, 999999999);
-        this.setcookie('option5', this.id('cs2ctSelect').value, 999999999);
+        if (!fast) this.setcookie('option5', this.id('cs2ctSelect').value, 999999999);
         this.setcookie('option6', this.id('fstString').value, 999999999);
     }
     this.setcookie = function (sName, sValue, iTime)
